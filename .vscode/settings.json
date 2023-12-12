@@ -1,0 +1,9 @@
+{
+  "cSpell.words": [
+    "arslan",
+  ],
+  "files.exclude": {
+    "node_modules/": true,
+    "public/": true,
+  }
+}
