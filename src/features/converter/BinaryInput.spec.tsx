@@ -21,14 +21,14 @@ describe("Binary input tests", () => {
   })
 
   test("In Simple mode it shouldn't be able to input a GT of 8 digits", () => {
-    render( <Converter /> ) // Assuming simple mode by default
+    render( <Converter /> ) // Assuming the Simple mode by default
     const $input = screen.getByLabelText("Binary input")
     fireEvent.change($input, { target: { value: "101010101"}})
     expect(screen.queryByText(/In Simple mode numbers greater than 8 digits are not allowed!/i)).toBeInTheDocument()
   })
 
   test("In Custom mode any number of digits is allowed in the number, but switching the mode should display the error", () => {
-    render( <Converter /> ) // Assuming simple mode by default
+    render( <Converter /> )
 
     const $customModeRadio = screen.getByLabelText(/Custom mode/i)
     fireEvent.click($customModeRadio)
