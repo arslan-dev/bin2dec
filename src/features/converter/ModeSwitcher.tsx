@@ -1,26 +1,26 @@
 import { EConversionMode } from "./EConversionMode"
 
 interface TProps {
-  mode: EConversionMode
-  setMode: (mode: EConversionMode) => void
+  conversionMode: EConversionMode
+  setConversionMode: (mode: EConversionMode) => void
 }
 
-export default function ModeSwitcher({ mode, setMode }: TProps) { 
+export default function ModeSwitcher({ conversionMode, setConversionMode }: TProps) { 
   return (
     <>
       <input
         type="radio"
         id="simpleModeRadio"
-        checked={mode === EConversionMode.Simple}
-        onChange={() => setMode(EConversionMode.Simple)}
+        checked={conversionMode === EConversionMode.Simple}
+        onChange={() => setConversionMode(EConversionMode.Simple)}
       />
       <label htmlFor="simpleModeRadio">Simple mode</label>
 
       <input
         type="radio"
         id="customModeRadio"
-        checked={mode === EConversionMode.Custom}
-        onChange={() => setMode(EConversionMode.Custom)}
+        checked={conversionMode === EConversionMode.Custom}
+        onChange={() => setConversionMode(EConversionMode.Custom)}
       />
       <label htmlFor="customModeRadio">Custom mode</label>
     </>

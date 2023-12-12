@@ -1,20 +1,24 @@
 import { useState } from "react";
 import ModeSwitcher from "./ModeSwitcher";
 import { EConversionMode } from "./EConversionMode";
+import BinaryInput from "./BinaryInput";
 
 export default function Converter() {
-  const [mode, setMode] = useState(EConversionMode.Simple)
+  const [conversionMode, setConversionMode] = useState(EConversionMode.Simple)
+
   return (
     <main className="row">
       <div className="col">
         <section>
           <ModeSwitcher
-            mode={mode}
-            setMode={setMode}
+            conversionMode={conversionMode}
+            setConversionMode={setConversionMode}
           />
         </section>
         <section>
-          Input
+          <BinaryInput
+            conversionMode={conversionMode}
+          />
         </section>
         <section>
           Result
