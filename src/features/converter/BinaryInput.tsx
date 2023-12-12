@@ -1,20 +1,11 @@
-import { useState } from "react"
-import { EConversionMode } from "./EConversionMode"
-
-const MAX_ALLOWED_DIGITS = 8
-const FORBIDDEN_SYMBOLS = new RegExp('[^01.]')
-
 interface TProps {
-  conversionMode: EConversionMode
+  binaryNumber: string
+  setBinaryNumber: (b: string) => void
+  hasForbiddenSymbols: boolean
+  hasLengthError: boolean
 }
 
-export default function BinaryInput({ conversionMode }: TProps) {
-  const [value, setValue] = useState('')
-
-  const hasForbiddenSymbols = FORBIDDEN_SYMBOLS.test(value)
-  const hasNumberLengthError = value.length > MAX_ALLOWED_DIGITS
-  const hasLengthError = hasNumberLengthError && conversionMode === EConversionMode.Simple
-
+export default function BinaryInput(props: TProps) {
   return(
     <>
       <label htmlFor="binaryInput">Binary input</label>
@@ -22,15 +13,15 @@ export default function BinaryInput({ conversionMode }: TProps) {
         type="text"
         id="binaryInput"
         placeholder="A number consisting of 0 and 1 only"
-        value={value}
-        onChange={e => setValue(e.target.value)}
+        value={props.binaryNumber}
+        onChange={e => props.setBinaryNumber(e.target.value)}
       />
       {
-        hasForbiddenSymbols &&
+        props.hasForbiddenSymbols &&
         <div>Digits other than '0' or '1' are not allowed!</div>
       }
       {
-        hasLengthError &&
+        props.hasLengthError &&
         <div>In Simple mode numbers greater than 8 digits are not allowed!</div>
       }
     </>
