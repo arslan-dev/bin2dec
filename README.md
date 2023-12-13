@@ -18,3 +18,11 @@ In order to allow both 8 digits max and variable digits conditions, the solution
 1. Simple mode. 8 digits max, uses `parseInt(binaryString, 2)`
 2. Custom mode. Variable number of digits and custom conversion.
 The "character limit exceeded" error will appear only for the simple mode.
+
+#### How to run using Docker
+
+```bash
+docker compose up -d
+```
+
+Then visit http://localhost:8080
