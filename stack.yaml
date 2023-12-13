@@ -1,0 +1,20 @@
+services:
+  web:
+    image: arslandev/bin2dec:v2.0
+    ports:
+      - target: 80
+        published: 8080 
+    deploy:
+      replicas: 4
+      update_config:
+        parallelism: 2
+        delay: 10s
+        failure_action: rollback
+      placement:
+        constraints:
+          - 'node.role == worker'
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
