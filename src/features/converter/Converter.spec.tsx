@@ -49,4 +49,10 @@ describe("Converter tests", () => {
     expect(screen.queryByText(/In Simple mode numbers greater than 8 digits are not allowed!/i)).toBeInTheDocument()
     expect(screen.queryByText(/Invalid input/i)).toBeInTheDocument()
   })
+  
+  it("should display a suggestion to enter the binary number when there is nothing in the text input", () => {
+    render( <Converter /> )
+    expect(screen.queryByText(/NaN/i)).not.toBeInTheDocument()
+    expect(screen.queryByText(/Enter a number/i)).toBeInTheDocument()
+  })
 })

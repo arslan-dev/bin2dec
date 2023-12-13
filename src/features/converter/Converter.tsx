@@ -16,15 +16,19 @@ export default function Converter() {
   const hasLengthError = hasNumberLengthError && conversionMode === EConversionMode.Simple
 
   const result = (function() {
+    if (binaryNumber.length === 0) {
+      return "Enter a number"
+    }
+
     if (hasForbiddenSymbols || hasLengthError) {
-      return "Invalid input."
+      return "Invalid input"
     }
     
     const convertedDecimal = (conversionMode === EConversionMode.Simple)
       ? bin2decSimple(binaryNumber)
       : bin2decCustom(binaryNumber)
 
-    return `Result: ${convertedDecimal}.`
+    return `Result: ${convertedDecimal}`
   })()
 
   return (
@@ -45,7 +49,7 @@ export default function Converter() {
           />
         </section>
         <section>
-          <p>{ result }</p>
+          <p className="display-4">{ result }</p>
         </section>
       </div>
     </main>

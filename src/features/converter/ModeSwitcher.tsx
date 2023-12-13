@@ -7,22 +7,24 @@ interface TProps {
 
 export default function ModeSwitcher({ conversionMode, setConversionMode }: TProps) { 
   return (
-    <>
+    <div className="btn-group mb-3" role="group" aria-label="Conversion mode radio toggle group">
       <input
         type="radio"
         id="simpleModeRadio"
+        className="btn-check"
         checked={conversionMode === EConversionMode.Simple}
         onChange={() => setConversionMode(EConversionMode.Simple)}
       />
-      <label htmlFor="simpleModeRadio">Simple mode</label>
+      <label className="btn btn-outline-primary" htmlFor="simpleModeRadio">Simple mode</label>
 
       <input
         type="radio"
         id="customModeRadio"
+        className="btn-check"
         checked={conversionMode === EConversionMode.Custom}
         onChange={() => setConversionMode(EConversionMode.Custom)}
       />
-      <label htmlFor="customModeRadio">Custom mode</label>
-    </>
+      <label className="btn btn-outline-primary" htmlFor="customModeRadio">Custom mode</label>
+    </div>
   )
 }
