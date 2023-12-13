@@ -1,5 +1,7 @@
 # Bin2Dec v2.0
 
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/arslan-dev/bin2dec)
+
 https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Bin2Dec-App.md
 
 #### Features
