@@ -3,7 +3,7 @@ RUN apk add --update nodejs npm
 WORKDIR /src
 COPY . .
 RUN npm ci 
-RUN npm run test-run
+RUN npm test
 RUN npm run build
 
 FROM httpd:2.4
